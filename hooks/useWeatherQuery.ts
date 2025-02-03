@@ -1,33 +1,29 @@
-import { useState, useEffect } from 'react';
-import { WeatherData } from '@/types';
+import { useState, useEffect } from "react";
+import { WeatherData } from "@/types";
 
-export const useWeatherQuery = (city: string) => {
+export function useWeatherQuery(city: string) {
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchWeather = async () => {
-      if (!city) return;
-      
-      setLoading(true);
-      setError(null);
-      
-      try {
-        const response = await fetch(`/api/weather/${encodeURIComponent(city)}`);
-        if (!response.ok) throw new Error('Failed to fetch weather data');
-        
-        const data = await response.json();
-        setWeather(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (!city) return;
 
-    fetchWeather();
+    setLoading(true);
+    fetch(`/api/weather?city=${city}`)
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to fetch weather data");
+        return response.json();
+      })
+      .then((data: WeatherData) => {
+        setWeather(data);
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setError("Failed to fetch weather data");
+      })
+      .finally(() => setLoading(false));
   }, [city]);
 
   return { weather, loading, error };
-};
+}

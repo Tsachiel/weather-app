@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/app/about/about.css"],"sourcesContent":["\r\n  \r\n  .about-container h1 {\r\n    font-size: 2rem;\r\n  }\r\n  \r\n  .about-container h2 {\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  \r\n\r\n  "],"names":[],"mappings":"AAEE;;;;AAIA"}},
+    {"offset": {"line": 8, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

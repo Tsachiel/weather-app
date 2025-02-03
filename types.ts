@@ -1,15 +1,30 @@
 export type WeatherData = {
-    temperature: number;
+  weather: {
     description: string;
+  }[];
+  main: {
+    temp: number;
+    feels_like: number;
     humidity: number;
-    windSpeed: number;
   };
-  
-  export type City = {
-    name: string;
-    lastViewed: number;
-    isFavorite: boolean;
+  wind: {
+    speed: number;
   };
-  
-  export type Variant = 'A' | 'B';
-  
+};
+
+export type City = {
+  name: string;
+  lastViewed: number;
+  isFavorite: boolean;
+};
+
+export type VariantBProps = {
+  humidity: number;
+  windSpeed: number;
+};
+
+export type VariantAProps = VariantBProps & {
+  feelsLike: number;
+};
+
+export type Variant = "A" | "B";
