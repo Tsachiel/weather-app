@@ -82,7 +82,7 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
         </div>
 
         {isVariantA ? (
-          <div className="grid grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-8">
             <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
               <Droplets className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
@@ -103,15 +103,15 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
               </dd>
             </div>
 
-            <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg col-span-2 sm:col-span-1 flex flex-col items-center justify-center text-center">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
-                <Sun className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
-                Feels Like
+                  <Sun className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
+                  Feels Like
+                </div>
+                <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                  {Math.round(weather.main.feels_like)}°C
+                </dd>
               </div>
-              <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                {Math.round(weather.main.feels_like)}°C
-              </dd>
-            </div>
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-4 md:gap-8">
