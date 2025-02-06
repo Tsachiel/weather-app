@@ -63,7 +63,7 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
             <h2 className={isVariantA ? "text-3xl font-bold text-blue-800 dark:text-gray-100 capitalize" :"text-3xl font-bold text-gray-800 dark:text-gray-100 capitalize"}>
               {city}
             </h2>
-            <span className="px-2 py-1 text-sm border border-gray-200 dark:border-gray-600 text-blue-700 dark:text-blue-300 rounded-full">
+            <span className={isVariantA ? "dark:bg-gray-800 bg-gray-50 border-none ms-auto px-2 py-1 text-sm border border-red-200 dark:border-gray-600 text-blue-700 dark:text-blue-300 rounded-full" : "px-2 py-1 text-sm border border-gray-200 dark:border-gray-600 text-blue-700 dark:text-blue-300 rounded-full"}>
               Celsius
             </span>
           </div>
@@ -85,7 +85,7 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
-                <Droplets className="w-4 h-4" />
+              <Droplets className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
                 Humidity
               </div>
               <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
@@ -95,7 +95,7 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
 
             <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
-                <Wind className="w-4 h-4" />
+              <Wind className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
                 Wind Speed
               </div>
               <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
@@ -105,7 +105,7 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
 
             <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
-                <Sun className="w-4 h-4" />
+                <Sun className={`w-4 h-4 ${isVariantA ? "text-blue-600 dark:text-blue-400" : ""}`} />
                 Feels Like
               </div>
               <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
@@ -116,8 +116,8 @@ export function WeatherDisplay({ city, variant }: WeatherDisplayProps) {
         ) : (
           <div className="grid grid-cols-2 gap-4 md:gap-8">
             <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
-              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
-                <Droplets className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
+              <Droplets className="w-4 h-4" />
                 Humidity
               </div>
               <dd className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
